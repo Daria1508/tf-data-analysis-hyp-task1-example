@@ -8,8 +8,8 @@ def solution(x_success: int,
              x_cnt: int, 
              y_success: int, 
              y_cnt: int) -> bool:
-  table=np.array([[x_success, x_cnt], [y_success, y_cnt]])
-  res=st.chi2_contingency(table, correction=False)[1]
+  table=np.array([[x_success, x_cnt-x_success], [y_success, y_cnt-y_success]])
+  res=st.chi2_contingency(table, correction=False)[1]/2
   if (res<0.02):
     return True
   else:
