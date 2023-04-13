@@ -9,7 +9,7 @@ def solution(x_success: int,
              y_success: int, 
              y_cnt: int) -> bool:
   table=np.array([[x_success, x_cnt-x_success], [y_success, y_cnt-y_success]])
-  res=st.chi2_contingency(table, correction=False)[1]
+  res=st.chi2_contingency(table, correction=False)[1]/2
   if (res<0.02):
     return True
   else:
